@@ -1,0 +1,81 @@
+<app-layout>
+  <div class="flex flex-col pt-[20vh]">
+    <div class="shadow-xl sm:w-[400px] w-[90%] bg-white rounded-xl mx-auto">
+      <div class="p-5">
+
+        <div class="">
+          <div>
+            <h1 class="mb-3 text-green-600">Success!</h1>
+          </div>
+          <div class="flex items-center">
+            <fa-icon [icon]="faLink"></fa-icon>
+            <span class="ml-3 text-md font-semibold">Your Long URL:</span>
+          </div>
+          <ng-container>
+            <div class="my-2 flex flex-col">
+              <input
+                [value]="longUrl"
+                class="border-2 rounded-xl p-2 flex-1 w-[100%] text-green-600"
+                [ngClass]="null" readonly aria-readonly="true"
+                type="text" />
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="pt-2">
+          <div class="flex items-center">
+            <fa-icon [icon]="faSparkles"></fa-icon>
+            <span class="ml-3 text-md font-semibold">Short URL:</span>
+          </div>
+          <ng-container>
+            <div class="my-2 flex flex-row">
+              <input
+                [cdkCopyToClipboard]="shortUrl"
+                [cdkCopyToClipboardAttempts]="3"
+                class="border-2 rounded-xl p-2 flex-2 w-[100%] text-green-600"
+                [ngClass]="null" readonly aria-readonly="true"
+                [value]="shortUrl"
+                type="text" />
+                <button (click)="copy()"
+                  [cdkCopyToClipboard]="shortUrl"
+                  [cdkCopyToClipboardAttempts]="3"
+                  class="copybtn tracking-widest bg-primary shadow-lg shadow-indigo-500/50 text-[#ffffff] ml-3 flex-1 px-2 rounded-xl text-xl font-semibold"
+                  >
+                  {{copyText}}
+                </button>
+            </div>
+          </ng-container>
+
+        </div>
+
+        <span class="flex mt-5 text-md flex-col">
+          <div>
+            <h3>Create other <a [routerLink]="'/'">shortened URL</a>.</h3>
+          </div>
+          <div class="mt-2">
+            <h3 class="tracking-wide">Visit URL <a [href]="shortUrl" target="_blank">here</a>.</h3>
+          </div>
+
+        </span>
+
+      </div>
+    </div>
+
+    <div class="shadow-xl sm:w-[500px] w-[90%] bg-white rounded-xl mx-auto mt-8 mb-3">
+      <div class="p-5">
+        <h3 class="text-xl font-extrabold pl-1">Share URL:</h3>
+        <span>
+          <share-buttons theme="modern-dark"
+            [include]="['facebook', 'twitter', 'messenger','email', 'linkedin', 'pinterest', 'print' ]"
+            [showIcon]="true"
+            [showText]="false"
+            [url]="shortUrl"
+            description="Shortening Url enables to convert small size from large size text."
+            class="pt-5">
+          </share-buttons>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</app-layout>
