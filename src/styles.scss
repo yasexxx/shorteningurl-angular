@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Importing tailwindcss packages
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import "node_modules/ngx-sharebuttons/themes/circles.scss";
+@import "node_modules/ngx-sharebuttons/themes/modern.scss";
+
+
+// Adding import of font-family to use
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+body{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+a {
+  color: rgb(96, 96, 226);
+}
+
+.bg-primary {
+  background-color: #151515;
+}
+// Primary color to use
+.primary-text {
+  color: #e6e6e6 !important;
+}
+.dark-text {
+  color: #151515 !important;
+}
+// Poppins-sans font family
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+// Montserrat-sans font family
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
