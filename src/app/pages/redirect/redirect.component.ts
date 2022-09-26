@@ -13,7 +13,10 @@ export class RedirectComponent implements OnInit {
 
   ngOnInit(): any {
     const redirectData = this.route.snapshot.data['redirect'];
-    const { error, data} = redirectData;
+    const error = redirectData?.error;
+    const data = redirectData?.data;
+
+
     if (error) return this.router.navigateByUrl('error/404', { skipLocationChange: true});
 
     // console.log(redirectData);
