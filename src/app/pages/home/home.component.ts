@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { LinkService } from 'src/app/services/link.service';
 import { setAPIStatus } from 'src/app/shared/store/app.action';
 import { selectAppstate } from 'src/app/shared/store/app.selector';
-import { Appstate } from 'src/app/shared/store/appState';
+import { Appstate } from 'src/app/shared/store/appstate';
 import { invokeCreateLinkAPI } from 'src/app/store/link.action';
 import { selectLink } from 'src/app/store/link.selector';
 
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription2 = this.link$.subscribe({
       next: async ({data, error}) => {
-        // console.log({data, error});
+        console.log({data, error});
 
         if (error){
           const errorMessage = error.error;
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.runError();
         this.spinner.hide();
         this.errorTextMessage = 'Something went wrong.';
-        // console.log(errors);
+        console.log(errors);
       }
     });
   }

@@ -5,7 +5,7 @@ import { select, Store } from "@ngrx/store";
 import { catchError, delay, map, mergeMap, of, switchMap, throwError, withLatestFrom } from "rxjs";
 import { LinkService } from "../services/link.service";
 import { setAPIStatus } from "../shared/store/app.action";
-import { Appstate } from "../shared/store/appState";
+import { Appstate } from "../shared/store/appstate";
 import { createLinkAPISuccess, invokeCreateLinkAPI, invokeLinkAPI, linkFetchAPIError, linkFetchAPISuccess } from "./link.action";
 import { selectLink } from "./link.selector";
 

@@ -28,7 +28,7 @@ export class RedirectComponent implements OnInit {
         return
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
       }
     });
 

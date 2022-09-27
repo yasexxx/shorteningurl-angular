@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { setAPIStatus } from "./app.action";
-import { Appstate } from "./appState";
+import { Appstate } from "./appstate";
 
 
 export const initialState: Readonly<Appstate> = {
