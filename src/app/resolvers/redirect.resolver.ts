@@ -4,9 +4,13 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 import { Observable, of} from 'rxjs';
 import { catchError, delay, map } from 'rxjs/operators';
+import { ResponseLink } from '../interfaces/response-link';
 import { LinkService } from '../services/link.service';
+import { invokeLinkAPI } from '../store/link.action';
+import { selectLink } from '../store/link.selector';
 
 
 @Injectable({
@@ -14,10 +18,8 @@ import { LinkService } from '../services/link.service';
 })
 export class RedirectResolver implements Resolve<any> {
 
-  constructor(private linkService: LinkService) {}
+  constructor(private store: Store) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    return this.linkService.getLink(route.paramMap.get('id'))
-        .pipe( catchError( () => { return of({error: 'Not found'})}),
-        delay(2500));
+    return this.store.pipe(select(selectLink));
   }
 }

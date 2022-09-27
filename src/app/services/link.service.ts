@@ -23,9 +23,14 @@ export class LinkService {
     this.API_ENDPOINT = this.API_URL + '/api/version1';
    }
 
-  getLink(code: string | null): Observable<ResponseLink> {
+  getLink(code: string | null | undefined ): Observable<ResponseLink> {
     const apiEndpoint = this.API_ENDPOINT + `/shorten?code=${code}`;
-    return this.http.get<ResponseLink>(apiEndpoint, {headers: this.headers});
+    return this.http.get<ResponseLink>(apiEndpoint, {headers: this.headers})
+      .pipe(
+        catchError( (error) => {
+          return of(error);
+        })
+      );
   }
 
   createLink(data: {url: string}): Observable<ResponseLink> {

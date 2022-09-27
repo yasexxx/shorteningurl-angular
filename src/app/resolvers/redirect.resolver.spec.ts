@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { LinkService } from '../services/link.service';
 
 import { RedirectResolver } from './redirect.resolver';
@@ -10,6 +11,7 @@ describe('RedirectResolver', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        provideMockStore({}),
         {provide: LinkService, useValue: linkServiceStub}
       ]
     });

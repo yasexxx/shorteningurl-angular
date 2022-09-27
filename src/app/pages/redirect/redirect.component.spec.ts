@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { RedirectComponent } from './redirect.component';
 
@@ -10,7 +11,10 @@ describe('RedirectComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RedirectComponent ],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
+      providers: [
+        provideMockStore({}),
+      ]
     })
     .compileComponents();
 
